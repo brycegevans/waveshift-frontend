@@ -1,0 +1,17 @@
+.mission-statement {
+  max-width: 700px;
+  margin: 2rem auto;
+  color: var(--primary-color, #764ba2); /* Use your purple/orange theme */
+  font-size: 1.15rem;
+  line-height: 1.6;
+    padding: 2rem 1.5rem; /* top-bottom 2rem, left-right 1.5rem */
+  background: #f9f7fc; /* subtle light background */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(118, 75, 162, 0.15); /* subtle purple shadow */
+  text-align: center;
+}
+.mission-statement h2 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}

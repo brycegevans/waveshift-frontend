@@ -1,0 +1,13 @@
+<section id="leadership-team" class="leadership-team">
+  <h2>Leadership Team</h2>
+  <div *ngIf = "employees.length > 0" class="team-cards">
+    <ng-container *ngFor = "let emp of employees">
+    <div class="team-card">
+      <h3>{{emp.firstName}} {{emp.lastName}}</h3>
+      <p><strong>{{emp.title}}</strong></p>
+      <p>{{emp.jobDescription}}</p>
+    </div>
+    </ng-container>
+  </div>
+</section>
+

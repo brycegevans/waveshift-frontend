@@ -1,0 +1,195 @@
+:root {
+  --primary-color: #0055a5;
+  --accent-color: #003f7d;
+  --bg-light: #f9f9f9;
+}
+
+.contact-page.split-layout {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 3rem auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.contact-info {
+  flex: 1;
+  background: var(--primary-color);
+  color: white;
+  padding: 2.5rem;
+}
+
+.contact-info h3 {
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.contact-icons {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.contact-icons li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.contact-icons i {
+  margin-right: 0.5rem;
+}
+
+.form-container {
+  flex: 1;
+  padding: 2.5rem;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.form-container p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #666;
+  font-size: 1.05rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .1rem; /* Added to preserve spacing */
+}
+
+.floating input,
+.floating textarea,
+.floating select {
+  padding: 1.25rem 1rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: white;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='10' viewBox='0 0 12 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 3l4 4 4-4' stroke='%23666' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.65rem auto;
+}
+
+.floating label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0.9rem;
+  color: #888;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: white;
+  padding: 0 0.25rem;
+}
+
+.floating input:focus,
+.floating textarea:focus,
+.floating select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 6px var(--primary-color);
+}
+
+.floating input:focus + label,
+.floating input:not(:placeholder-shown) + label,
+.floating textarea:focus + label,
+.floating textarea:not(:placeholder-shown) + label,
+.floating select:focus + label,
+.floating select:not([value=""]) + label {
+  top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--primary-color);
+}
+
+.has-error input,
+.has-error select,
+.has-error textarea {
+  border-color: #e74c3c;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.25rem; /* Spacing between input and error */
+  margin-left: 0.25rem; /* Align with input padding */
+  min-height: 1em;      /* Prevent layout jump */
+}
+
+.btn-submit {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 2rem; /* Space above submit button */
+}
+
+.btn-submit:hover {
+  background: var(--accent-color);
+}
+
+/* Animation */
+.contact-form .form-group {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.contact-form .form-group:nth-child(1) { animation-delay: 0s; }
+.contact-form .form-group:nth-child(2) { animation-delay: 0.1s; }
+.contact-form .form-group:nth-child(3) { animation-delay: 0.2s; }
+.contact-form .form-group:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-page.split-layout {
+    flex-direction: column;
+  }
+
+  .contact-info, .form-container {
+    flex: 100%;
+    padding: 2rem;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+}

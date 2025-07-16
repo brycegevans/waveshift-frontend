@@ -1,0 +1,32 @@
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  color: white;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color), var(--primary-color));
+  background-size: 200% 200%;
+  animation: heroGradientFlow 8s ease infinite;
+}
+@keyframes heroGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}

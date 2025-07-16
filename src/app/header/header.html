@@ -1,0 +1,64 @@
+<header class="main-header">
+  <div class="container">
+<div class="logo-container">
+  <!-- Put this inside your header component template, replacing the .logo-ball div -->
+<svg
+  class="logo-wave-ball"
+  width="40"
+  height="40"
+  viewBox="0 0 100 100"
+  aria-label="WaveShift logo"
+  role="img"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#764ba2">
+        <animate
+          attributeName="stop-color"
+          values="#764ba2;#ff7f50;#764ba2"
+          dur="6s"
+          repeatCount="indefinite"
+        />
+      </stop>
+      <stop offset="100%" stop-color="#ff7f50">
+        <animate
+          attributeName="stop-color"
+          values="#ff7f50;#764ba2;#ff7f50"
+          dur="6s"
+          repeatCount="indefinite"
+        />
+      </stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer circle with gradient fill -->
+  <circle cx="50" cy="50" r="48" fill="url(#grad)" />
+
+  <!-- White wave paths -->
+  <path
+    d="M10 60 Q 25 40 40 60 T 70 60"
+    stroke="white"
+    stroke-width="3"
+    fill="none"
+  />
+  <path
+    d="M15 70 Q 30 50 45 70 T 75 70"
+    stroke="white"
+    stroke-width="3"
+    fill="none"
+    opacity="0.7"
+  />
+</svg>
+
+  <div class="logo-text" style="cursor: pointer;" (click)="goHome()">WaveShift</div>
+</div>
+
+    <nav class="nav-links">
+      <a href="#products">Features</a>
+      <a href="#mission-statement">About</a>
+      <a href="#leadership-team">Leadership</a>
+      <a routerLink="/contact-us" style="cursor: pointer;">Contact</a>
+    </nav>
+  </div>
+</header>

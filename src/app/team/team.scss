@@ -1,0 +1,38 @@
+.leadership-team {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.leadership-team h2 {
+  margin-bottom: 2rem;
+  color: var(--primary-color, #764ba2);
+}
+
+.team-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.team-card {
+  flex: 1 1 200px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  box-shadow: 0 6px 15px rgba(118, 75, 162, 0.3);
+}
+
+.team-card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.team-card p {
+  color: #555;
+}

@@ -1,0 +1,112 @@
+<section class="contact-page split-layout">
+  <div class="contact-info">
+    <h3>Let's Build Something Together</h3>
+    <p>We're here for you. Reach out and our team will respond within 1 business day.</p>
+    <ul class="contact-icons">
+
+    </ul>
+  </div>
+
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you. Fill out the form below with your ideas.</p>
+
+    <form #form="ngForm" (ngSubmit)="submit(form)" class="contact-form">
+      <!-- Name -->
+      <div class="form-group floating" [ngClass]="{ 'has-error': name.invalid && name.touched }">
+        <input
+          id="name"
+          name="name"
+          type="text"
+          [(ngModel)]="formData.name"
+          #name="ngModel"
+          required
+          placeholder=" " />
+        <label for="name">Your Name</label>
+        <div class="error-message" *ngIf="name.invalid && name.touched">
+          Name is required.
+        </div>
+      </div>
+      <!-- Recipient Dropdown -->
+            <div class="form-group floating" [ngClass]="{ 'has-error': recipient.invalid && recipient.touched }">
+        <select
+          id="recipient"
+          name="recipient"
+          [(ngModel)]="formData.recipient"
+          #recipient="ngModel"
+          required>
+          <option value="" disabled selected hidden></option>
+          <option *ngFor="let emp of employees" [value]="emp.id">
+            {{ emp.firstName }} {{ emp.lastName }} - ({{emp.title}})
+          </option>
+        </select>
+        <label for="recipient">Select a Recipient</label>
+        <div class="error-message" *ngIf="recipient.invalid && recipient.touched">
+          Recipient is required.
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group floating">
+        <input
+          id="email"
+          name="email"
+          type="email"
+          [(ngModel)]="formData.email"
+          #email="ngModel"
+          required
+          placeholder=" " />
+        <label for="email">Email</label>
+      </div>
+
+      <!-- Number -->
+      <div class="form-group floating">
+        <input
+          id="number"
+          name="number"
+          type="tel"
+          pattern="^[0-9]{10}$"
+          [(ngModel)]="formData.number"
+          #number="ngModel"
+          placeholder=" " />
+        <label for="number">Phone Number</label>
+      </div>
+
+      <!-- Subject -->
+      <div class="form-group floating" [ngClass]="{ 'has-error': subject.invalid && subject.touched }">
+        <input
+          id="subject"
+          name="subject"
+          type="text"
+          [(ngModel)]="formData.subject"
+          #subject="ngModel"
+          required
+          placeholder=" " />
+        <label for="subject">Subject</label>
+        <div class="error-message" *ngIf="subject.invalid && subject.touched">
+          Subject is required.
+        </div>
+      </div>
+
+      <!-- Message Body -->
+      <div class="form-group floating" [ngClass]="{ 'has-error': body.invalid && body.touched }">
+        <textarea
+          id="message"
+          name="body"
+          [(ngModel)]="formData.body"
+          #body="ngModel"
+          required
+          placeholder=" "
+          rows="5"></textarea>
+        <label for="message">Your Message</label>
+        <div class="error-message" *ngIf="body.invalid && body.touched">
+          Message is required.
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">Send Message</button>
+
+      <p *ngIf="helloMessage">{{ helloMessage }}</p>
+    </form>
+  </div>
+</section>

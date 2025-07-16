@@ -1,0 +1,91 @@
+.main-header {
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem; /* space between ball and text */
+}
+
+.logo-ball {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(270deg, #764ba2, #ff7f50);
+  background-size: 400% 400%;
+  animation: colorShift 6s ease infinite;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #764ba2; /* purple text */
+  user-select: none; /* optional: prevent text selection */
+  // animation: textColorShift 6s ease infinite;
+
+}
+@keyframes textColorShift {
+  0%, 100% {
+    color: #764ba2; /* purple */
+  }
+  50% {
+    color: #ff7f50; /* orange */
+  }
+}
+
+/* Animation keyframes */
+@keyframes colorShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.nav-links a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Optional underline animation on hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0%;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
