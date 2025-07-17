@@ -1,0 +1,26 @@
+<div *ngIf="user" class="dashboard-container">
+  <h1>Welcome, {{ user.email }}!</h1>
+  <p>Your role: <strong>{{ user.role }}</strong></p>
+  <p>Member since: {{ user.joinedAt | date:'mediumDate' }}</p>
+
+  <button (click)="logout()" class="btn logout-btn">Logout</button>
+  <button (click)="toggleProfile()" class="btn profile-btn">
+    {{ showProfile ? 'Close Profile Settings' : 'Profile Settings' }}
+  </button>
+
+  <div *ngIf="showProfile" class="profile-settings">
+    <h2>Update Profile <span style="color: grey; font-size: small">(some forms may be disabled if role is user)</span></h2>
+    <form (ngSubmit)= "updateProfile()">
+      <label for="email">Email:</label>
+      <input id="email" [(ngModel)]= "user.email" name="email" type="email" [disabled]= "user.role == 'USER'" required />
+
+      <label for="role">Role:</label>
+      <select id="role" [(ngModel)]= "user.role" name="role" [disabled]= "user.role == 'USER'">
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+      </select>
+
+      <button type="submit" class="btn update-btn">Update</button>
+    </form>
+  </div>
+</div>

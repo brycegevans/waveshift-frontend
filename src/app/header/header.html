@@ -55,10 +55,19 @@
 </div>
 
     <nav class="nav-links">
-      <a href="#products">Features</a>
+      <a href="#products">Products</a>
       <a href="#mission-statement">About</a>
       <a href="#leadership-team">Leadership</a>
       <a routerLink="/contact-us" style="cursor: pointer;">Contact</a>
+      <ng-container *ngIf= "!user">
+        <a routerLink="/signin">Sign In</a>
+        <a routerLink="/signup">Sign Up</a>
+      </ng-container>
+
     </nav>
+      <ng-container *ngIf= "user">
+        <span>Hi, {{ user.firstName }}</span>
+        <a (click)= "logout()" style="cursor: pointer;">Logout</a>
+      </ng-container>
   </div>
 </header>

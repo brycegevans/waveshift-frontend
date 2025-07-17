@@ -1,0 +1,39 @@
+<div class="contact-page split-layout">
+  <div class="contact-info">
+    <h3>Welcome Back</h3>
+    <p>Please sign in to your account using your email and password.</p>
+  </div>
+
+  <div class="form-container">
+    <h2>Sign In</h2>
+    <p>Access your dashboard and manage your preferences.</p>
+
+    <form class="contact-form" (submit)="onSubmit($event)" novalidate>
+      <div class="form-group floating" [class.has-error]="errorMessages.email">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder=" "
+          autocomplete="username"
+        />
+        <label for="email">Email</label>
+        <div class="error-message">{{ errorMessages.email }}</div>
+      </div>
+
+      <div class="form-group floating" [class.has-error]="errorMessages.password">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder=" "
+          autocomplete="current-password"
+        />
+        <label for="password">Password</label>
+        <div class="error-message">{{ errorMessages.password }}</div>
+      </div>
+
+      <button type="submit" class="btn-submit">Sign In</button>
+    </form>
+  </div>
+</div>

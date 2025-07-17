@@ -13,7 +13,7 @@ export interface ContactForm {
   providedIn: 'root'
 })
 export class ContactService {
-  private apiUrl =  environment.apiUrl +  'api/contact'; 
+  private apiUrl =  environment.apiUrl +  '/contact'; 
 
   constructor(private http: HttpClient) {}
 

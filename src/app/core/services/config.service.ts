@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 export class ConfigService {
   // Internal config object (untyped or loosely typed)
   private config: any;
-private apiUrl = environment.apiUrl +"api/hero";
+private apiUrl = environment.apiUrl +"/hero";
   // Employee list as BehaviorSubject for shared access
   private employees = new BehaviorSubject<any[]>([]);
   private configReady = new ReplaySubject<any>(1);
