@@ -55,12 +55,12 @@
 </div>
 
     <nav class="nav-links">
-      <a href="#products">Products</a>
-      <a href="#mission-statement">About</a>
-      <a href="#leadership-team">Leadership</a>
+      <a  [routerLink]="['/home']" fragment="products">Products</a>
+      <a  [routerLink]="['/home']" fragment="mission-statement">About</a>
+      <a  [routerLink]="['/home']" fragment="team">Leadership</a>
       <a routerLink="/contact-us" style="cursor: pointer;">Contact</a>
       <ng-container *ngIf= "!user">
-        <a routerLink="/signin">Sign In</a>
+        <a routerLink="/signin">Login</a>
         <a routerLink="/signup">Sign Up</a>
       </ng-container>
 

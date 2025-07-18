@@ -12,11 +12,13 @@
       <li><a href="#mission-statement">About</a></li>
       <li><a href="#leadership-team">Leadership</a></li>
       <li><a routerLink="/contact-us">Contact</a></li>
+
       </ul>
     </div>
 
     <div class="footer-section contact">
       <h4><a routerLink="/contact-us" style="cursor: pointer;">Contact Us</a></h4>
+            <h4 *ngIf= "!user"><a routerLink="/signup">Sign Up</a></h4>
       
     </div>
   </div>

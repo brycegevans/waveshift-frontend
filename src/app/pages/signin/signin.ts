@@ -1,20 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { ToastService } from '../../core/toast/toast.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './signin.html',
+  imports: [CommonModule],
   styleUrls: ['./signin.scss'] // or global styles
 })
-export class SignIn {
+export class SignIn implements OnInit{
 
   errorMessages = {
     email: '',
     password: ''
   };
   constructor(private authService: AuthService, private toastService: ToastService, private router: Router){}
+  user:any;
+  
+  ngOnInit(): void {
+      this.authService.user$.subscribe(user => {
+      this.user = user;
+    });
+  }
 
   onSubmit(event: Event) {
     event.preventDefault();

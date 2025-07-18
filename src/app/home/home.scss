@@ -30,3 +30,15 @@
   margin-bottom: 2rem;
   font-weight: 400;
 }
+.hero-rotating-message {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #f0f0f0;
+  min-height: 1.5em;
+  animation: fadeInOut 6s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+}

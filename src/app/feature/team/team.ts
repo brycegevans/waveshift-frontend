@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TeamService } from './team-service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ConfigService } from '../core/services/config.service';
+import { ConfigService } from '../../core/services/config.service';
 
 @Component({
   selector: 'app-team',

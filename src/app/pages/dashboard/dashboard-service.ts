@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 export interface ContactForm {
   name: string;
@@ -12,12 +12,14 @@ export interface ContactForm {
 @Injectable({
   providedIn: 'root'
 })
-export class TeamService {
-  private apiUrl = environment.apiUrl + 'api/hero'; // Adjust as needed
+export class DashboardService {
+  private apiUrl =  environment.apiUrl +  '/auth'; 
 
   constructor(private http: HttpClient) {}
 
-//   getEmployees(){
-//     return this.http.get<any[]>(this.apiUrl + '/getEmployees');
-//   }
+  updateUser(data: any){
+    console.log(data);
+    let id = data.id;
+    return this.http.put(this.apiUrl+'/update'+`/${id}`, data);
+  }
 }

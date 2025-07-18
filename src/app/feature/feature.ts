@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { TechStack } from '../tech-stack/tech-stack';
-import { MissionStatement } from '../mission-statement/mission-statement';
-import { Team } from '../team/team';
+import { TechStack } from './tech-stack/tech-stack';
+import { MissionStatement } from './mission-statement/mission-statement';
+import { Team } from './team/team';
+
 
 @Component({
   selector: 'app-feature',

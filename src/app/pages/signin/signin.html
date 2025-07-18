@@ -33,7 +33,7 @@
         <div class="error-message">{{ errorMessages.password }}</div>
       </div>
 
-      <button type="submit" class="btn-submit">Sign In</button>
+      <button *ngIf= "!user" type="submit" class="btn-submit">Sign In</button>
     </form>
   </div>
 </div>

@@ -15,10 +15,20 @@ import { filter } from 'rxjs';
 export class App {
   protected readonly title = signal('wave-shift');
   constructor(private configService: ConfigService,private router: Router){{
-    this.router.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd))
+     this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // or just { top: 0 }
+        const tree = this.router.parseUrl(this.router.url);
+        if (tree.fragment) {
+          // Try to scroll to the element with the matching ID
+          const element = document.getElementById(tree.fragment);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          // Default scroll to top
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       });
   }
 }
