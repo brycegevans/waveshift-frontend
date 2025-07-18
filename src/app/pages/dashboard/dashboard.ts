@@ -33,7 +33,7 @@
           this.authService.setUser(this.user); 
         },
         error: () => {
-          this.toastService.show('There was an error with authetication try loggin in again', 'error');
+          this.toastService.show('There was an error with authetication try logging in again', 'error');
           this.router.navigate(['/login']);  
         }
       });
