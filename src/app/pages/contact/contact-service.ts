@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -19,6 +19,9 @@ export class ContactService {
 
   sendMessage(data: any){
     console.log(data);
-    return this.http.post(this.apiUrl+'/sendMessage', data);
+    const headers = new HttpHeaders({
+          'Content-Type': 'application/json'
+    });
+    return this.http.post(this.apiUrl+'/sendMessage', data, {headers: headers, withCredentials:true});
   }
 }

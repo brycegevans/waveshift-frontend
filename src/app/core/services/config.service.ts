@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, forkJoin, Observable, ReplaySubject } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -18,10 +18,13 @@ private apiUrl = environment.apiUrl +"/hero";
   constructor(private http: HttpClient) {}
 
   loadStartupData(): Promise<void> {
+    const headers = new HttpHeaders({
+          'Content-Type': 'application/json'
+    });
     return new Promise((resolve, reject) => {
       forkJoin({
-        config: this.http.get(this.apiUrl+'/getConfiguration'),
-        employees: this.http.get<any[]>(this.apiUrl + '/getEmployees')
+        config: this.http.get(this.apiUrl+'/getConfiguration', {headers:headers, withCredentials:true}),
+        employees: this.http.get<any[]>(this.apiUrl + '/getEmployees', {headers: headers, withCredentials:true})
       }).subscribe({
         next: ({ config, employees }) => {
           this.config = config;

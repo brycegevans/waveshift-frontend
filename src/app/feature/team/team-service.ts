@@ -17,7 +17,4 @@ export class TeamService {
 
   constructor(private http: HttpClient) {}
 
-//   getEmployees(){
-//     return this.http.get<any[]>(this.apiUrl + '/getEmployees');
-//   }
 }
