@@ -13,53 +13,31 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 0.6rem; /* space between ball and text */
+  gap: 0.6rem;
 }
 
-.logo-ball {
+.logo-wave-ball {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(270deg, #764ba2, #ff7f50);
-  background-size: 400% 400%;
-  animation: colorShift 6s ease infinite;
 }
 
 .logo-text {
   font-weight: bold;
   font-size: 1.2rem;
-  color: #764ba2; /* purple text */
-  user-select: none; /* optional: prevent text selection */
-  // animation: textColorShift 6s ease infinite;
-
-}
-@keyframes textColorShift {
-  0%, 100% {
-    color: #764ba2; /* purple */
-  }
-  50% {
-    color: #ff7f50; /* orange */
-  }
+  color: #764ba2;
+  user-select: none;
 }
 
-/* Animation keyframes */
-@keyframes colorShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.nav-links {
+  display: flex;
+  align-items: center;
 }
-
 
 .nav-links a {
   margin-left: 2rem;
@@ -71,10 +49,9 @@
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: #764ba2;
 }
 
-/* Optional underline animation on hover */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -82,10 +59,46 @@
   bottom: -4px;
   height: 2px;
   width: 0%;
-  background-color: var(--accent-color);
+  background-color: #ff7f50;
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover::after {
   width: 100%;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    z-index: 1001;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 1rem 0;
+  }
 }

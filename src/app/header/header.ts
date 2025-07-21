@@ -17,6 +17,16 @@ export class Header implements OnInit{
       this.user = user;
     });
   }
+   mobileMenuOpen = false;
+
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMenu() {
+    this.mobileMenuOpen = false;
+  }
 
   goHome(){
     this.router.navigate(['/home'])
